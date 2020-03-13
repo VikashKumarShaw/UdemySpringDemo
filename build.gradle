@@ -21,9 +21,11 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.2.2.RELEASE'
 	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.30'
 	compile group: 'javax.servlet', name: 'jstl', version: '1.2'
 	compile group: 'org.webjars', name: 'bootstrap', version: '3.2.0'
+	compile group: 'org.webjars', name: 'bootstrap-datepicker', version: '1.2.0'
 	compile group: 'org.webjars.bower', name: 'jquery', version: '3.2.1'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {

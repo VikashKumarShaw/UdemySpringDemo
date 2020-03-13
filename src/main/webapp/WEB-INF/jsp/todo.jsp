@@ -1,13 +1,7 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
-<head>
-<title> List of Todos </title>
-<link href="webjars/bootstrap/3.2.0/css/bootstrap.min.css"
-	    		rel="stylesheet">
+<%@ include file = "common/header.jspf"%>
+<%@ include file = "common/navigation.jspf"%>
 
-</head>
-    <body>
-        <div class ="container">
+      <div class ="container">
             <h1>Hi ${name} </h1><br>
 
         <table class = "table table-striped">
@@ -17,7 +11,9 @@
                      <th>Description</th>
                      <th>Completion Date</th>
                      <th>Completion status</th>
+                     <th>Update Course</th>
                      <th>Delete Course</th>
+
 
                 </tr>
 
@@ -26,9 +22,11 @@
             <c:forEach items = "${todos}" var ="todo">
                 <tr>
                     <td>${todo.desc}</td>
-                    <td>${todo.targetDate}</td>
+                    <td><fmt:formatDate value = "${todo.targetDate}"/></td>
                     <td>${todo.done}</td>
+                    <td><a type = "button" class = "btn btn-success" href = "/updateTodo?id=${todo.id}">Update</a>
                     <td><a type = "button" class = "btn btn-danger" href = "/deleteTodo?id=${todo.id}">Delete</a>
+
                 </tr>
                 </c:forEach>
             </tbody>
@@ -37,8 +35,4 @@
                 <a class ="button" href = "/addTodo"> Add your Todos</a>
             </div>
         </div>
-
-        <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
-        	    <script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    </body>
-</html>
+<%@ include file = "common/footer.jspf"%>
